@@ -1,0 +1,21 @@
+.content{
+    opacity: 0.9 !important;
+    
+}
+
+.card{
+    border-radius: 25px;
+  width: 70%;
+  margin-left: 15% !important;
+    justify-content: center !important;
+}
+
+@media(max-width: 575.5px){
+    .card{
+       
+      width: auto !important;
+      margin-left: 3% !important
+      
+    }
+}
+

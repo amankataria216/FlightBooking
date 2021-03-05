@@ -1,0 +1,62 @@
+<div class="container" id="container-tickets" *ngFor='let t of ticket'>
+ 
+    <div class="row" id="row-card"> 
+      <!-- <div class="col-2"></div> -->
+      <div class="col-sm-8">
+      <div class="card">
+        <div class="card-header" style="background-color: #e8eaf6;">
+          <div class="row" id="row-header">
+            <div class="col-6">
+              {{t.tdate}}
+            
+            </div>
+            <div class="col-6">
+              <h6 id="card-head">Rs. {{t.price}}</h6>
+            </div>
+            
+          </div>
+         
+          
+        </div>
+        <div class="card-body"  >
+          <div class="row">
+            <div class="col-3">
+              <h5 class="card-title">{{t.stime}}</h5>
+              <h5 class="card-title">{{t.src}}</h5>
+              <p>{{t.scity}}</p>
+            </div>
+            <div class="col-3">
+              <div class="row" style="justify-content: center;">
+                <fa-icon [icon]="faArrowRight"style="font-size:30px" ></fa-icon>
+                <!-- <i class="fa fa-arrows-h" style="font-size:36px"></i> -->
+              </div>
+             
+
+            
+            
+            </div>
+            <div class="col-3">
+              <h5 class="card-title">{{t.dtime}}</h5>
+              <h5 class="card-title">{{t.des}}</h5>
+              <p>{{t.dcity}}</p>
+            
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-outline-primary" [routerLink]="['/feedback/viewfeedback']">    Review</button>
+              <button  type="button" class="btn btn-outline-danger" (click)="deleteTicketDetail(t.id)">Cancel</button>
+
+            </div>
+          </div>
+        
+        
+      
+        </div>
+      </div>
+    </div>
+    </div>
+   
+
+    
+                    
+                  
+                    </div>

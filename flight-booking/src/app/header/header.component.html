@@ -1,0 +1,42 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <a class="navbar-brand" href="#">
+            <img id="logo" src="../../assets/logo (2).png" alt="logo"  class="d-inline-block align-top">
+            Fligth Booking
+        
+          </a>
+        
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav" *ngIf="loginTag">
+            <ul class="navbar-nav ms-auto flex-nowrap">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" [routerLink]="['/dashboard']">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/mytickets']">My tickets</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/biz']">Biz Booking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/feedback']">Feedback</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/sale-analytics']">Sale Analytics</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" (click)="logOut()">Logout</a>
+              </li>
+              
+     </ul>
+            
+          </div>
+        </div>
+      </nav>
+    
+    
+</header>

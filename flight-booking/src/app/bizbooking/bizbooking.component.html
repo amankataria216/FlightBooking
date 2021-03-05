@@ -1,0 +1,106 @@
+<div class="wrapper bg-white">
+    <form  [formGroup]="searchForm" (ngSubmit)="getFlightDetails()" >
+        <div class="form-group border-bottom d-flex ">
+           <label class="option my-sm-0 my-2"> 
+             <input formControlName="trip" type="radio" value="roundTrip" checked  >Round Trip <span class="checkmark"></span>
+             </label> 
+           <label class="option my-sm-0 my-2" id="option2"> 
+             <input formControlName="trip" type="radio" value="oneWay"   >One Way <span class="checkmark"></span> </label>
+            <!-- <div class="d-flex align-items-center my-sm-0 my-2"> <a href="#" class="text-decoration-none"> Multi-city/Stopovers <span class="fas fa-angle-right ps-2 text-primary"></span> </a> </div> -->
+        </div>
+        <div class="form-group d-sm-flex margin">
+            <div class="d-flex align-items-center flex-fill me-sm-1 my-sm-0 my-4 border-bottom position-relative">
+               <input type="text" formControlName="From" required placeholder="From" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.From.errors }">
+                <div class="label" id="from"></div><i class="fa fa-dot-circle-o"></i>
+            </div>
+            <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative">
+               <input type="text" formControlName="To" required placeholder="To" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.To.errors }">
+                <div class="label" id="to"></div> <i class="fa fa-map-marker text-muted"></i>
+            </div>
+        </div>
+        <div class="form-group d-sm-flex margin">
+            <div class="d-flex align-items-center flex-fill me-sm1 my-sm-0 border-bottom position-relative"> 
+              <input type="date" formControlName="DepartDate" required placeholder="Depart Date" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.DepartDate.errors }">
+                <div class="label" id="depart"></div>
+            </div>
+            <div class="d-flex align-items-center flex-fill ms-sm-1 my-sm-0 my-4 border-bottom position-relative"> 
+              <input type="date" required  formControlName="ReturnDate" placeholder="Return Date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ReturnDate.errors }">
+                <div class="label" id="return"></div>
+            </div>
+        </div>
+        <!-- <div class="form-group border-bottom d-flex align-items-center position-relative"> 
+          <input type="text" required formControlName="Travellers" placeholder="Traveller(s)" class="form-control">
+            <div class="label" id="psngr"></div> <span class="fa fa-users text-muted"></span>
+        </div> -->
+        <div class="form-group my-3">
+          <div class="btn btn-primary rounded-0 d-flex justify-content-center text-center p-3" (click)="getFlightDetails()">Search Flights </div>
+        </div>
+          <!-- <button class="btn btn-outline-primary mr-1">Submit</button></div> -->
+    </form>
+</div>
+<div class="container">
+ 
+    <div class="row" id="row-card"  *ngFor='let fli of getData'>
+      <!-- <div class="col-2"></div> -->
+      <div class="col-sm-8">
+      <div class="card">
+        <div class="card-header">
+          <div class="row" id="row-header">
+            <div class="col-6">
+              {{fli.tdate}}
+            
+            </div>
+            <div class="col-6" >
+              <h6 id="card-head" style="color: red;"><s>Rs. {{fli.price}}</s></h6>
+              <h6 style="text-align:right;color:green">Rs. {{fli.price * 0.9}}</h6>
+            </div>
+          
+              
+          
+            
+            
+          </div>
+         
+          
+        </div>
+        <div class="card-body"  >
+          <div class="row">
+            <div class="col-3">
+              <h5 class="card-title">{{fli.stime}}</h5>
+              <h5 class="card-title">{{fli.src}}</h5>
+              <p>{{fli.scity}}</p>
+            </div>
+            <div class="col-3">
+              <div class="row" style="justify-content: center;">
+                <fa-icon [icon]="faArrowRight"style="font-size:30px" ></fa-icon>
+                <i class="fa fa-arrows-h" style="font-size:36px"></i>
+              </div>
+             
+
+            
+            
+            </div>
+            <div class="col-3">
+              <h5 class="card-title">{{fli.dtime}}</h5>
+              <h5 class="card-title">{{fli.des}}</h5>
+              <p>{{fli.dcity}}</p>
+            
+            </div>
+            <div class="col-3">
+              <button type="button" class="btn btn-outline-primary" [routerLink]="['/bookingform',fli.id]">Book Now</button>
+
+            </div>
+          </div>
+        
+        
+      
+        </div>
+      </div>
+    </div>
+    </div>
+    
+
+    
+                    
+                  
+                    </div>
